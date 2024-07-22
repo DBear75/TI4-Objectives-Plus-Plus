@@ -4,6 +4,7 @@ import pandas as pd
 import os
 import textwrap
 import numpy as np
+import sys
 
 parser = argparse.ArgumentParser(description='Generates objective cards for O++ project.')
 
@@ -22,6 +23,12 @@ parser.add_argument(
 )
 
 args = parser.parse_args()
+
+if args.objective_type is None:
+    sys.exit("No objective type provided.")
+
+if args.input_file is None:
+    args.input_file = args.objective_type+".csv"
 
 # Read the input CSV file
 data = pd.read_csv(args.input_file)
