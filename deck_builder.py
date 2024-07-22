@@ -3,6 +3,7 @@ from PIL import Image, ImageDraw, ImageFont
 import pandas as pd
 import os
 import textwrap
+import numpy as np
 
 parser = argparse.ArgumentParser(description='Generates objective cards for O++ project.')
 
@@ -35,6 +36,15 @@ if not os.path.exists("generatedImages/"+args.objective_type):
     # Create the objective_type folder
     os.makedirs("generatedImages/"+args.objective_type)
 
+# Check if the objective_type folder exists
+if not os.path.exists("generatedImages/decks"):
+    # Create the objective_type folder
+    os.makedirs("generatedImages/decks")
+
+
+background_image = Image.open(f"backgrounds/{args.objective_type}.png")
+deck = Image.new('RGB', (background_image.width*10, int(np.ceil(background_image.height*len(data)/10))))
+
 # Iterate over each row in the CSV
 for index, row in data.iterrows():
     # Get the name and objective from the current row
@@ -43,7 +53,6 @@ for index, row in data.iterrows():
     phase = row['Phase']
     
     # Open the background image
-    background_image = Image.open(f"backgrounds/{args.objective_type}.png")
     name_gradient = Image.open(f"gradients/{args.objective_type}.png")
     
     alpha = Image.new('L', name_gradient.size)
@@ -128,4 +137,8 @@ for index, row in data.iterrows():
         )
     
     # Save the new image with the name as the filename
-    new_image.save(f"generatedImages/{args.objective_type}/{name}.jpg")
+    new_image.save(f"generatedImages/{args.objective_type}/{name}.png")
+    deck.paste(new_image, (background_image.width*(index%10), background_image.height*(index//10)))
+
+deck.save(f"generatedImages/decks/{args.objective_type}.jpg")
+
