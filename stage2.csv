@@ -39,3 +39,13 @@ Push Design Boundaries,Have none of each of 2 unit types in your reinforcements 
 Usurp Their Resources,Control planets in or adjacent to other players home systems with a combine resource value of at least 5.,Status
 Bend Their Will,Control planets in or adjacent to other players' home systems with a combine influence value of at least 5.,Status
 Elegant Engineering,Have at least 1 shps with a cost of 4 or more in each of 5 systems.,Status
+Activate Armada,Have a command token in each of 8 systems that contain your ships.,Status
+Usurp Disputed Space,Have units in each of 9 systems that are in or adjacent to other players units or planets.,Status
+Mobolize Assault Squads,"Have 3 non-fighter, non-infantry units of the same type in each of 6 systems.",Status
+Monopolize Research,Have a structure on each of 3 planets you control with different technology specialties.,Status
+Defend Diverse Interests,Have 2 structures on planets of each of 3 different traits.,Status
+Shatter Frontiers,Own technologies with a combined 10 prerequisites.,Status
+Press Advantages,"Have a mech, flagship, or upgraded faction specific unit in each of 5 systems adjacent to other players units or planets.",Status
+Claim Supremacy,"Control 7 planets that are legendary, Mecatol Rex, in other players home systems, or adjacent to any of the aforementioned planet types.",Status
+Defy Physical Limits,Have a ship in each of 7 systems that contain or are adjacent to a wormhole or gravity rift.,Status
+Shatter Markets,"Spend 20 influence, resources, or a mix thereof.",Status

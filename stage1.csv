@@ -39,3 +39,13 @@ Specialize Armies,Have none of a unit type in your reinforcements while owning t
 Seize the Wealth,Control planets with more combined resources than each of 2 players that are your neighbors.,Status
 Control the Culture,Control planets with more combined influence than each of 2 players that are your neighbors.,Status
 Demonstrate Power,Have at least 1 ship with a cost of 4 or more in each of 3 systems.,Status
+Activate Fleets,Have a command token in each of 5 systems that contain your ships.,Status
+Patrol Disputed Territory,Have units in each of 5 systems that are in or adjacent to other players units or planets.,Status
+Mobolize Strike Forces,"Have 3 non-fighter, non-infantry units of the same type in each of 4 systems.",Status
+Defend Research Outposts,Have a structure on each of 2 planets you control with different technology specialties.,Status
+Diversify Interests,Have a structure on a planet of each of 3 different traits.,Status
+Expand Knowledge,Own technologies with a combined 5 prerequisites,Status
+Specialize Forces,"Have a mech, flagship, or upgraded faction specific unit in each of 3 systems adjacent to other players units or planets.",Status
+Strengthen Claim,"Control 4 planets that are legendary, Mecatol Rex, in other players home systems, or adjacent to any of the aforementioned planet types.",Status
+Study Beyond Spacetime,Have a ship in each of 4 systems that contain or are adjacent to a wormhole or gravity rift.,Status
+Steer Market Forces,"Spend 10 influence, resources, or a mix thereof.",Status
