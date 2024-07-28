@@ -25,7 +25,7 @@ Hold Vast Reserves,"Spend 6 influence, 6 resources, and 6 trade goods.",Status
 Galactic Celebrations,Exhaust 5 planets you control outside of your home system.,Status
 Invest in an Empire,Exhaust 1 planet in each of 5 different systems.,Status
 Manipulate Galactic Law,Spend 16 influence.,Status
-Master of Sciences,Own 2 technologies in each of 4 colors.,Status
+Master of Sciences,"Own 2 technologies of each color, not including technologies you owned at the start of the game.",Status
 Patrol Vast Territories,Have units in 5 systems that do not contain planets.,Status
 Protect the Border,Have structures on 5 planets outside of your home system.,Status
 Reclaim Ancient Monuments,Control 3 planets that have attachments.,Status
@@ -49,3 +49,18 @@ Press Advantages,"Have a mech, flagship, or upgraded faction specific unit in ea
 Claim Supremacy,"Control 7 planets that are legendary, Mecatol Rex, in other players home systems, or adjacent to any of the aforementioned planet types.",Status
 Defy Physical Limits,Have a ship in each of 7 systems that contain or are adjacent to a wormhole or gravity rift.,Status
 Shatter Markets,"Spend 20 influence, resources, or a mix thereof.",Status
+Master Technologist,"Own 4 technologies of a color, 2 technology specialty planets of that color, and a unit upgrade with a prerequisite of that color.",Status
+Encircle the Empire,Control 5 planets adjacent to a system containing a planet controlled by another player.,Status
+Influential Empire,Control 5 planets with at least 3 influence.,Status
+Resource Dominion,Control 5 planets with at least 3 resources.,Status
+Deploy Elite Troops,Have ground forces with a combined cost of at least 3 resources on each of 7 planets; infantry count as half a resource.,Status
+Unit Mastery,Have none of 5 different unit types in your reinforcements.,Status
+Dominant Fleet Presence,"Have a ship in each of 7 systems that contain or are adjacent to another player's home system, mecatol rex, or a legendary planet.",Status
+Dominate Great Worlds,Exhaust 3 planets outside your home system each with at least a combined 4 influence and resources.,Status
+Research Mastery,Own 5 technologies with at least 2 prerequisites.,Status
+Advanced Infrastructure,Have a structure on 4 different planets of the same trait.,Status
+Dominate Divergent Worlds,"Control 2 planets of each trait, 2 planets with an attachment, 2 planets with a technology specialty, and 2 planets in or adjacent to a system with a legendary planet.",Status
+Lead The Arms Race,Have 4 ships with a cost of at least 2 in each of 4 systems.,Status
+Power an Empire,Exhaust 5 planets that contain your structures.,Status
+Mandate Imperial Research,Own 2 technologies of a 2 colors and have a structure on technology specialty planets of those colors in system(s) not adjacent to your home system.,Status
+Proliferate Warships,Have a ship with a cost of at least 3 in each of 7 systems.,Status

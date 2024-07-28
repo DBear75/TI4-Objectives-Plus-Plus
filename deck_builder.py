@@ -43,14 +43,14 @@ if not os.path.exists("generatedImages/"+args.objective_type):
     # Create the objective_type folder
     os.makedirs("generatedImages/"+args.objective_type)
 
-# Check if the objective_type folder exists
-if not os.path.exists("generatedImages/decks"):
-    # Create the objective_type folder
-    os.makedirs("generatedImages/decks")
+
 
 
 background_image = Image.open(f"backgrounds/{args.objective_type}.png")
-deck = Image.new('RGB', (background_image.width*10, int(np.ceil(background_image.height*len(data)/10))))
+z = pd.Index(data).size
+x_deck = int(np.ceil(np.sqrt(z*background_image.height / background_image.width )))
+y_deck = int(np.ceil(z/x_deck))
+deck = Image.new('RGB', (x_deck*background_image.width, y_deck*background_image.height))
 
 # Iterate over each row in the CSV
 for index, row in data.iterrows():
@@ -142,10 +142,20 @@ for index, row in data.iterrows():
             font=font2,
             fill=(255, 255, 255)
         )
-    
+
     # Save the new image with the name as the filename
     new_image.save(f"generatedImages/{args.objective_type}/{name}.png")
-    deck.paste(new_image, (background_image.width*(index%10), background_image.height*(index//10)))
+    deck.paste(
+        new_image,
+        (background_image.width*(index%x_deck), background_image.height*(index//x_deck))
+    )
 
-deck.save(f"generatedImages/decks/{args.objective_type}.jpg")
+
+# Check if the objective_type folder exists
+if not os.path.exists("generatedImages/decks"):
+    # Create the objective_type folder
+    os.makedirs("generatedImages/decks")
+
+deck = deck.resize((deck.width//2, deck.height//2))
+deck.save(f"generatedImages/decks/{args.objective_type}.png")
 

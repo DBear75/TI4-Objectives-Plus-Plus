@@ -1,5 +1,5 @@
 name,objective,Phase
-Engineer a Marvel,Have your flagship or war sun in a system that is not in or adjacent to your home system.,Status
+Engineer a Marvel,"Have your flagship or war sun in a system that is not in or adjacent to your home system, ignoring wormhole adjacency.",Status
 Spread the Sphere,Control at least 1 planet in each of 4 systems.,Status
 Unify Distant Land,Control 2 planets with the same trait that are not in or adjacent to your home system.,Status
 Raise an Army,"Have 15 non-infantry, non-fighter units on the game board.",Status
@@ -25,7 +25,7 @@ Amass Wealth,"Spend 3 influence, 3 resources, and 3 trade goods.",Status
 Declare Festival,Exhaust 3 planets you control outside of your home system.,Status
 Invest in the Future,Exhaust 1 planet in each of 3 different systems.,Status
 Sway the Council,Spend 8 influence.,Status
-Diversify Research,Own 1 technology in each of 4 colors.,Status
+Diversify Research,"Own 1 technology of each color, not including technologies you owned at the start of the game.",Status
 Explore Deep Space,Have units in 3 systems that do not contain planets.,Status
 Improve Infrastructure,Have structures on 3 planets outside of your home system.,Status
 Discover Lost Outposts,Control 2 planets that have attachments.,Status
@@ -33,7 +33,7 @@ Develop Weaponry,Own 2 unit upgrade technologies and have at least 2 of each of 
 Push Boundaries,Control more planets than each of 2 of your neighbors.,Status
 Expand Borders,Control 6 planets in non-home systems.,Status
 Corner the Market,Control 4 planets that each have the same planet trait.,Status
-Hold Key Planets,Control 2 planets with at least 5 combined influence and resources.,Status
+Hold Key Planets,Control 3 planets with at least 4 combined influence and resources.,Status
 Specialize Designs,Control a technology specialty planet matching each prerequisite for a unit upgrade technology you own.,Status
 Specialize Armies,Have none of a unit type in your reinforcements while owning that unit's unit upgrade technology.,Status
 Seize the Wealth,Control planets with more combined resources than each of 2 players that are your neighbors.,Status
@@ -49,3 +49,18 @@ Specialize Forces,"Have a mech, flagship, or upgraded faction specific unit in e
 Strengthen Claim,"Control 4 planets that are legendary, Mecatol Rex, in other players home systems, or adjacent to any of the aforementioned planet types.",Status
 Study Beyond Spacetime,Have a ship in each of 4 systems that contain or are adjacent to a wormhole or gravity rift.,Status
 Steer Market Forces,"Spend 10 influence, resources, or a mix thereof.",Status
+Technological Triumph,"Own 2 technologies of a color, a technology specialty planet of that color, and a unit upgrade with a prerequisite of that color.",Status
+Encircle the Enemy,Control 3 planets adjacent to a system containing a planet controlled by another player.,Status
+Influential Dominion,Control 3 planets with at least 3 influence.,Status
+Resourceful Holdings,Control 3 planets with at least 3 resources.,Status
+Deploy Troops,Have ground forces with a combined cost of at least 3 resources on each of 4 planets; infantry count as half a resource,Status
+Unit Specialization,Have none of 3 different unit types in your reinforcements.,Status
+Strategic Presence,"Have a ship in each of 4 systems that contain or are adjacent to another player's home system, mecatol rex, or a legendary planet.",Status
+Strategic Exhaustion,Exhaust 2 planets outside your home system each with at least a combined 4 influence and resources.,Status
+Advanced Technologies,Own 3 technologies with at least 2 prerequisites.,Status
+Infrastructure Specialization,Have a structure on 2 different planets of the same trait.,Status
+Hold Divergent Interests,"Control 1 planet of each trait, a planet with an attachment, a planet with a technology specialty, and a planet in or adjacent to a system with a legendary planet.",Status
+Begin The Arms Race,Have 4 ships with a cost of at least 2 in each of 2 systems.,Status
+Power Cities,Exhaust 3 planets that contain your structures.,Status
+Centralize Research,Own 2 technologies of a color and have a structure on a technology specialty planet of that color in a system not adjacent to your home system.,Status
+Spread Vessels of War,Have a ship with a cost of at least 3 in each of 4 systems.,Status
