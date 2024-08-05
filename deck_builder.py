@@ -157,5 +157,5 @@ if not os.path.exists("generatedImages/decks"):
     os.makedirs("generatedImages/decks")
 
 deck = deck.resize((deck.width//2, deck.height//2))
-deck.save(f"generatedImages/decks/{args.objective_type}.png")
+deck.save(f"generatedImages/decks/{args.objective_type}.jpg")
 
