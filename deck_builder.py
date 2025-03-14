@@ -55,10 +55,21 @@ deck = Image.new('RGB', (x_deck*background_image.width, y_deck*background_image.
 # Iterate over each row in the CSV
 for index, row in data.iterrows():
     # Get the name and objective from the current row
-    if args.objective_type == "stageless":
+    if "stageless" == args.objective_type:
         name = row['Stage 1 Name']
         objective = row['Stage 1 Objective']
         objective2 = row['Stage 2 Objective']
+    elif "stageless_secret" == args.objective_type:
+        name = row['name']
+        objective = row['objective']
+        objective2 = row['objective2']
+        phase2 = row['Phase2']
+        if phase2.lower() == "action":
+            color2 = (246, 11, 4)
+        elif phase2.lower() == "agenda":
+            color2 = (96, 96, 254)
+        else:
+            color2 = (255, 255, 255)
     else:
         name = row['name']
         objective = row['objective']
@@ -79,7 +90,7 @@ for index, row in data.iterrows():
     
     # Create a new image draw object
     draw = ImageDraw.Draw(new_image)
-    if args.objective_type == "stageless":
+    if "stageless" in args.objective_type:
         font_size = 68
     else:
         font_size = 92
@@ -98,7 +109,7 @@ for index, row in data.iterrows():
     
         # Calculate the x and y coordinates to center the objective text at the bottom of the image
         text_x = (name_gradient.width - text_width) // 2
-        if args.objective_type == "stageless":
+        if "stageless" in args.objective_type:
             text_y = name_gradient.height // 2
         else:
             text_y = name_gradient.height // 8
@@ -119,7 +130,7 @@ for index, row in data.iterrows():
     else:
         color = (255, 255, 255)
 
-    if args.objective_type == "stageless":
+    if "stageless" in args.objective_type:
         font3_size = 48
         font3 = ImageFont.truetype("SliderTI-_.otf", font3_size)
         _, _, text_width, text_height = draw.textbbox((0, 0), phase.upper()+" PHASE", font=font3)
@@ -136,13 +147,22 @@ for index, row in data.iterrows():
             fill=color
         )
 
-        # Lower Phase
-        draw.text(
-            (text_x, text_y + phase_offset),
-            phase.upper()+" PHASE",
-            font=font3,
-            fill=color
-        )
+        if "stageless_secret" == args.objective_type:
+            # Lower Phase
+            draw.text(
+                (text_x, text_y + phase_offset),
+                phase2.upper()+" PHASE",
+                font=font3,
+                fill=color2
+            )
+        else:
+            # Lower Phase
+            draw.text(
+                (text_x, text_y + phase_offset),
+                phase.upper()+" PHASE",
+                font=font3,
+                fill=color
+            )
     else:
         font3_size=72
         font3 = ImageFont.truetype("SliderTI-_.otf", font3_size)
@@ -157,7 +177,7 @@ for index, row in data.iterrows():
             fill=color
         )
 
-    if args.objective_type == "stageless":
+    if "stageless" in args.objective_type:
 
         font2_size = 60
         font2 = ImageFont.truetype("MYRIADPRO-SEMIBOLD.OTF", font2_size)
@@ -172,10 +192,7 @@ for index, row in data.iterrows():
         
             # Calculate the x and y coordinates to center the objective text at the bottom of the image
             objective_x = (background_image.width - objective_width) // 2
-            if len(wrapped)%2 == 0:
-                objective_y = background_image.height // 4 + 30
-            else:
-                objective_y = background_image.height // 4 + 15
+            objective_y = background_image.height // 4 + 30
             draw.text(
                 (objective_x, objective_y + ((i-len(wrapped)//2)*font2_size)),
                 line,
@@ -190,12 +207,9 @@ for index, row in data.iterrows():
         
             # Calculate the x and y coordinates to center the objective text at the bottom of the image
             objective_x = (background_image.width - objective_width) // 2
-            if len(wrapped2)%2 == 0:
-                objective_y = 6 * background_image.height // 8 - 60
-            else:
-                objective_y = 6 * background_image.height // 8 - 80
+            objective_y = 6 * background_image.height // 8 - 60
             draw.text(
-                (objective_x, objective_y + ((i-len(wrapped)//2)*font2_size)),
+                (objective_x, objective_y + ((i-len(wrapped2)//2)*font2_size)),
                 line,
                 font=font2,
                 fill=(255, 255, 255)
