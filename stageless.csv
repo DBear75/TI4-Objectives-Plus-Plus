@@ -42,7 +42,7 @@ Make History,"Have units in 2 systems that contain legendary planets, Mecatol Re
 Mobilize Forces,Have more units in or adjacent to the Mecatol Rex system than each of 2 players that are your neighbor.,Dominate the Seat of Power,Have 25 units in or adjacent to the Mecatol Rex system.,Military,Status
 Mobilize Strike Forces,"Have 3 non-fighter, non-infantry units of the same type in each of 4 systems.",Mobilize Assault Squads,"Have 3 non-fighter, non-infantry units of the same type in each of 6 systems.",Military,Status
 Negotiate Trade Routes,Spend 5 trade goods.,Centralize Galactic Trade,Spend 10 trade goods.,Economy,Status
-Patrol Disputed Territory,Have units in each of 5 systems that are in or adjacent to other players' units or planets.,Usurp Disputed Space,Have units in each of 9 systems that are in or adjacent to other players' units or planets.,Control,Status
+Patrol Disputed Territory,Have ships in each of 5 systems that are in systems adjacent to other players' units or planets.,Usurp Disputed Space,Have ships in each of 9 systems that are in systems adjacent to other players' units or planets.,Control,Status
 Populate the Outer Rim,Have units in 3 systems on the edge of the game board other than your home system.,Control the Borderlands,Have units in 5 systems on the edge of the game board other than your home system.,Control,Status
 Power Cities,Exhaust 3 planets that contain your structures.,Power an Empire,Exhaust 5 planets that contain your structures.,Economy,Status
 Push Boundaries,Control more planets than each of 2 of your neighbors.,Rule Distant Lands,"Control 2 planets that are each in or adjacent to a different, other player's home system.",Control,Status
@@ -62,5 +62,5 @@ Strengthen Claim,"Control 4 planets that are legendary, Mecatol Rex, in other pl
 Study Beyond Spacetime,Have a ship in each of 4 systems that contain or are adjacent to a wormhole or gravity rift.,Defy Physical Limits,Have a ship in each of 7 systems that contain or are adjacent to a wormhole or gravity rift.,Control,Status
 Sway the Council,Spend 8 influence.,Manipulate Galactic Law,Spend 16 influence.,Economy,Status
 Technological Triumph,"Own 2 technologies of a color, a technology specialty planet of that color, and a unit upgrade with a prerequisite of that color.",Master Technologist,"Own 4 technologies of a color, 2 technology specialty planets of that color, and a unit upgrade with a prerequisite of that color.",Technology,Status
-Unify Distant Land,Control 2 planets with the same trait that are not in or adjacent to your home system.,Annex Their Worlds,Control 4 planets with the same trait that are not in or adjacent to your home system.,Control,Status
+Unify Distant Lands,Control 2 planets with the same trait that are not in or adjacent to your home system.,Annex Their Worlds,Control 4 planets with the same trait that are not in or adjacent to your home system.,Control,Status
 Unit Specialization,Have none of 3 different unit types in your reinforcements.,Unit Mastery,Have none of 5 different unit types in your reinforcements.,Military,Status
