@@ -62,8 +62,25 @@ deck = Image.new('RGB', (x_deck*background_image.width, y_deck*background_image.
 # Iterate over each row in the CSV
 for index, row in data.iterrows():
     # Get the name and objective from the current row
-    name = row['name']
-    objective = row['objective']
+    if "stageless" == args.objective_type:
+        name = row['Stage 1 Name']
+        objective = row['Stage 1 Objective']
+        objective2 = row['Stage 2 Objective']
+    elif "stageless_secret" == args.objective_type:
+        name = row['name']
+        objective = row['objective']
+        objective2 = row['objective2']
+        phase2 = row['Phase2']
+        if phase2.lower() == "action":
+            color2 = (246, 11, 4)
+        elif phase2.lower() == "agenda":
+            color2 = (96, 96, 254)
+        else:
+            color2 = (255, 255, 255)
+    else:
+        name = row['name']
+        objective = row['objective']
+    
     phase = row['Phase']
     
     # Open the background image
@@ -80,8 +97,10 @@ for index, row in data.iterrows():
     
     # Create a new image draw object
     draw = ImageDraw.Draw(new_image)
-    
-    font_size = 92
+    if "stageless" in args.objective_type:
+        font_size = 68
+    else:
+        font_size = 92
     # Set the font and font size for the text
     font = ImageFont.truetype("SliderTI-_.otf", font_size)
     temp_name = name.upper()
@@ -97,7 +116,10 @@ for index, row in data.iterrows():
     
         # Calculate the x and y coordinates to center the objective text at the bottom of the image
         text_x = (name_gradient.width - text_width) // 2
-        text_y = name_gradient.height // 8
+        if "stageless" in args.objective_type:
+            text_y = name_gradient.height // 2
+        else:
+            text_y = name_gradient.height // 8
         draw_alpha.text(
             (text_x, text_y + ((i-len(wrapped)/2)*font_size)),
             line.upper(),
@@ -115,24 +137,45 @@ for index, row in data.iterrows():
     else:
         color = (255, 255, 255)
 
-    font3_size=72
-    font3 = ImageFont.truetype("SliderTI-_.otf", font3_size)
+    if "stageless" in args.objective_type:
+        font3_size = 48
+        font3 = ImageFont.truetype("SliderTI-_.otf", font3_size)
+        _, _, text_width, text_height = draw.textbbox((0, 0), phase.upper()+" PHASE", font=font3)
+        text_x = (new_image.width - text_width) // 2
+        text_y = new_image.height // 2 - 28
 
-    _, _, text_width, text_height = draw.textbbox((0, 0), phase.upper()+" PHASE", font=font3)
-    text_x = (new_image.width - text_width) // 2
-    text_y = new_image.height // 5 + 10
+        phase_offset = 150
 
-    draw.text(
-        (text_x, text_y),
-        phase.upper()+" PHASE",
-        font=font3,
-        fill=color
-    )
+        # Upper Phase
+        draw.text(
+            (text_x, text_y - phase_offset),
+            phase.upper()+" PHASE",
+            font=font3,
+            fill=color
+        )
 
-    font2_size = 84
-    font2 = ImageFont.truetype("MYRIADPRO-SEMIBOLD.OTF", font2_size)
-    temp_obj = ""
-    wrap_width = 22
+        if "stageless_secret" == args.objective_type:
+            # Lower Phase
+            draw.text(
+                (text_x, text_y + phase_offset),
+                phase2.upper()+" PHASE",
+                font=font3,
+                fill=color2
+            )
+        else:
+            # Lower Phase
+            draw.text(
+                (text_x, text_y + phase_offset),
+                phase.upper()+" PHASE",
+                font=font3,
+                fill=color
+            )
+    else:
+        font3_size=72
+        font3 = ImageFont.truetype("SliderTI-_.otf", font3_size)
+        _, _, text_width, text_height = draw.textbbox((0, 0), phase.upper()+" PHASE", font=font3)
+        text_x = (new_image.width - text_width) // 2
+        text_y = new_image.height // 2 + 10
 
     pad = 10
     wrapped = textwrap.wrap(objective, width=wrap_width)
@@ -148,7 +191,71 @@ for index, row in data.iterrows():
             line,
             font=font2,
             fill=(255, 255, 255)
+        draw.text(
+            (text_x, text_y),
+            phase.upper()+" PHASE",
+            font=font3,
+            fill=color
         )
+
+    if "stageless" in args.objective_type:
+
+        font2_size = 60
+        font2 = ImageFont.truetype("MYRIADPRO-SEMIBOLD.OTF", font2_size)
+        temp_obj = ""
+        wrap_width = 28
+
+        pad = 10
+        wrapped = textwrap.wrap(objective, width=wrap_width)
+        # Draw the objective text on the image
+        for i, line in enumerate(wrapped):
+            _, _, objective_width, objective_height = draw.textbbox((0, 0), line, font=font2)
+        
+            # Calculate the x and y coordinates to center the objective text at the bottom of the image
+            objective_x = (background_image.width - objective_width) // 2
+            objective_y = background_image.height // 4 + 30
+            draw.text(
+                (objective_x, objective_y + ((i-len(wrapped)//2)*font2_size)),
+                line,
+                font=font2,
+                fill=(255, 255, 255)
+            )
+
+
+        wrapped2 = textwrap.wrap(objective2, width=wrap_width)
+        for i, line in enumerate(wrapped2):
+            _, _, objective_width, objective_height = draw.textbbox((0, 0), line, font=font2)
+        
+            # Calculate the x and y coordinates to center the objective text at the bottom of the image
+            objective_x = (background_image.width - objective_width) // 2
+            objective_y = 6 * background_image.height // 8 - 60
+            draw.text(
+                (objective_x, objective_y + ((i-len(wrapped2)//2)*font2_size)),
+                line,
+                font=font2,
+                fill=(255, 255, 255)
+            )
+    else:
+        font2_size = 84
+        font2 = ImageFont.truetype("MYRIADPRO-SEMIBOLD.OTF", font2_size)
+        temp_obj = ""
+        wrap_width = 22
+
+        pad = 10
+        wrapped = textwrap.wrap(objective, width=wrap_width)
+        # Draw the objective text on the image
+        for i, line in enumerate(wrapped):
+            _, _, objective_width, objective_height = draw.textbbox((0, 0), line, font=font2)
+        
+            # Calculate the x and y coordinates to center the objective text at the bottom of the image
+            objective_x = (background_image.width - objective_width) // 2
+            objective_y = background_image.height // 2
+            draw.text(
+                (objective_x, objective_y + ((i-len(wrapped)//2)*font2_size)),
+                line,
+                font=font2,
+                fill=(255, 255, 255)
+            )
 
     # Save the new image with the name as the filename
     new_image.save(f"generatedImages/{args.objective_type}/{name}.png")
@@ -164,5 +271,5 @@ if not os.path.exists("generatedImages/decks"):
     os.makedirs("generatedImages/decks")
 
 deck = deck.resize((deck.width//2, deck.height//2))
-deck.save(f"generatedImages/decks/{args.objective_type}.png")
+deck.save(f"generatedImages/decks/{args.objective_type}.jpg")
 
