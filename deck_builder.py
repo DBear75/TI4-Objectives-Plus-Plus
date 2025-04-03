@@ -22,6 +22,8 @@ parser.add_argument(
     default=None
 )
 
+parser.add_argument("--tts-mode", action='store_true', default=False)
+
 args = parser.parse_args()
 
 if args.objective_type is None:
@@ -48,7 +50,12 @@ if not os.path.exists("generatedImages/"+args.objective_type):
 
 background_image = Image.open(f"backgrounds/{args.objective_type}.png")
 z = pd.Index(data).size
-x_deck = int(np.ceil(np.sqrt(z*background_image.height / background_image.width )))
+if not args.tts_mode:
+    x_deck = int(np.ceil(np.sqrt(z*background_image.height / background_image.width )))
+else:
+    x_deck = 10
+
+
 y_deck = int(np.ceil(z/x_deck))
 deck = Image.new('RGB', (x_deck*background_image.width, y_deck*background_image.height))
 
@@ -135,9 +142,9 @@ for index, row in data.iterrows():
     
         # Calculate the x and y coordinates to center the objective text at the bottom of the image
         objective_x = (background_image.width - objective_width) // 2
-        objective_y = background_image.height // 2
+        objective_y = background_image.height // 2 + 35
         draw.text(
-            (objective_x, objective_y + ((i-len(wrapped)//2)*font2_size)),
+            (objective_x, objective_y + int((i-len(wrapped)/2)*font2_size)),
             line,
             font=font2,
             fill=(255, 255, 255)
