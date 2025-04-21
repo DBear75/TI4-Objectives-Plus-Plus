@@ -177,27 +177,6 @@ for index, row in data.iterrows():
         text_x = (new_image.width - text_width) // 2
         text_y = new_image.height // 2 + 10
 
-    pad = 10
-    wrapped = textwrap.wrap(objective, width=wrap_width)
-    # Draw the objective text on the image
-    for i, line in enumerate(wrapped):
-        _, _, objective_width, objective_height = draw.textbbox((0, 0), line, font=font2)
-    
-        # Calculate the x and y coordinates to center the objective text at the bottom of the image
-        objective_x = (background_image.width - objective_width) // 2
-        objective_y = background_image.height // 2 + 35
-        draw.text(
-            (objective_x, objective_y + int((i-len(wrapped)/2)*font2_size)),
-            line,
-            font=font2,
-            fill=(255, 255, 255)
-        draw.text(
-            (text_x, text_y),
-            phase.upper()+" PHASE",
-            font=font3,
-            fill=color
-        )
-
     if "stageless" in args.objective_type:
 
         font2_size = 60
