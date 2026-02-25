@@ -137,6 +137,8 @@ for index, row in data.iterrows():
     else:
         color = (255, 255, 255)
 
+    phase_offset = 150
+
     if "stageless" in args.objective_type:
         font3_size = 48
         font3 = ImageFont.truetype("SliderTI-_.otf", font3_size)
@@ -144,7 +146,7 @@ for index, row in data.iterrows():
         text_x = (new_image.width - text_width) // 2
         text_y = new_image.height // 2 - 28
 
-        phase_offset = 150
+        
 
         # Upper Phase
         draw.text(
@@ -175,8 +177,13 @@ for index, row in data.iterrows():
         font3 = ImageFont.truetype("SliderTI-_.otf", font3_size)
         _, _, text_width, text_height = draw.textbbox((0, 0), phase.upper()+" PHASE", font=font3)
         text_x = (new_image.width - text_width) // 2
-        text_y = new_image.height // 2 + 10
-
+        text_y = new_image.height // 4 - 80
+        draw.text(
+            (text_x, text_y),
+            phase.upper()+" PHASE",
+            font=font3,
+            fill=color
+        )
     if "stageless" in args.objective_type:
 
         font2_size = 60
