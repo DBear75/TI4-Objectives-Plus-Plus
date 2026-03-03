@@ -11,17 +11,22 @@ This tool obviously requires python3, but in addition it requires the following 
 To install these, use the following commands:
 
 `pip install pillow`
-`pip install pandas`
-`pip install numpy`
 
+`pip install pandas`
+
+`pip install numpy`
 
 # Using this tool
 This tool runs from the commandline. A few sample commands are provided below:
 
 `python .\deck_builder.py --objective-type=stage1`
+
 `python .\deck_builder.py --objective-type=stage2`
+
 `python .\deck_builder.py --objective-type=secret`
+
 `python .\deck_builder.py --objective-type=stageless`
+
 `python .\deck_builder.py --objective-type=stageless-secret`
 
 
@@ -34,4 +39,5 @@ There are a handful of arguments that may be usefule to know:
 Here are some examples:
 
 `python .\deck_builder.py --objective-type=stage1 --tts-mode`
+
 `python .\deck_builder.py --objective-type=secret --input-file=secret-deck-2.csv`
